@@ -3,7 +3,7 @@
   "ConfigVersion": 6,
   "TargetJob": 37,
   "Author": "DG",
-  "Name": "M5S 绝枪MT 炒股版 v1.0",
+  "Name": "M5S 绝枪MT 炒股版 v1.1",
   "TreeRoot": {
     "DisplayName": "Start",
     "Childs": [
@@ -4233,7 +4233,7 @@
                       "W": 1.0
                     },
                     "Id": 139,
-                    "Enable": true,
+                    "Enable": false,
                     "Remark": "爆发药"
                   },
                   {
@@ -4381,6 +4381,343 @@
                 "Id": 128,
                 "Enable": true,
                 "Remark": "输出相关"
+              },
+              {
+                "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeSequence, AEAssist",
+                "DisplayName": "序列",
+                "IgnoreNodeResult": false,
+                "StopWhenDead": false,
+                "Childs": [
+                  {
+                    "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeParallel, AEAssist",
+                    "DisplayName": "并行",
+                    "AnyReturn": false,
+                    "StopWhenDead": false,
+                    "Childs": [
+                      {
+                        "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeSelect, AEAssist",
+                        "DisplayName": "选择",
+                        "Childs": [
+                          {
+                            "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeSequence, AEAssist",
+                            "DisplayName": "序列",
+                            "IgnoreNodeResult": false,
+                            "StopWhenDead": false,
+                            "Childs": [
+                              {
+                                "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeCondNode, AEAssist",
+                                "CondLogicType": 0,
+                                "CheckOnce": true,
+                                "ReverseResult": false,
+                                "TriggerConds": [
+                                  {
+                                    "$type": "AEAssist.CombatRoutine.Trigger.TriggerCond.TriggerCondVariable, AEAssist",
+                                    "VariableName": "爆发药时间06 填1 28 填0",
+                                    "CompareType": 0,
+                                    "VariableVaule": 0,
+                                    "Remark": null,
+                                    "DisplayName": "General/变量值"
+                                  }
+                                ],
+                                "DisplayName": "立即检测",
+                                "GUID": "e5dd8fcc-12e1-411e-aff9-4a1c27301187",
+                                "Important": false,
+                                "Color": {
+                                  "X": 1.0,
+                                  "Y": 1.0,
+                                  "Z": 0.4,
+                                  "W": 1.0
+                                },
+                                "Id": 148,
+                                "Enable": true,
+                                "Remark": ""
+                              },
+                              {
+                                "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeCondNode, AEAssist",
+                                "CondLogicType": 0,
+                                "CheckOnce": false,
+                                "ReverseResult": false,
+                                "TriggerConds": [
+                                  {
+                                    "$type": "AEAssist.CombatRoutine.Trigger.TriggerCond.TriggerCondEnemyCastSpell, AEAssist",
+                                    "Remark": "",
+                                    "RegexNameOrId": "42838",
+                                    "NeedTargetable": false,
+                                    "DisplayName": "General/敌人读条使用技能"
+                                  }
+                                ],
+                                "DisplayName": "等待条件",
+                                "GUID": "2a22c683-b0d9-4a09-8402-4f03509d856a",
+                                "Important": false,
+                                "Color": {
+                                  "X": 1.0,
+                                  "Y": 1.0,
+                                  "Z": 0.4,
+                                  "W": 1.0
+                                },
+                                "Id": 149,
+                                "Enable": true,
+                                "Remark": "积热跳舞街 74s"
+                              },
+                              {
+                                "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeCondNode, AEAssist",
+                                "CondLogicType": 0,
+                                "CheckOnce": false,
+                                "ReverseResult": false,
+                                "TriggerConds": [
+                                  {
+                                    "$type": "AEAssist.CombatRoutine.Trigger.TriggerCond.TriggerCondCheckSpellCd, AEAssist",
+                                    "SpellId": 16164,
+                                    "CoolDown": 5,
+                                    "Larger": false,
+                                    "Remark": null,
+                                    "DisplayName": "General/检测技能CD"
+                                  }
+                                ],
+                                "DisplayName": "等待条件",
+                                "GUID": "27666ec6-5d6f-4881-b05c-63b5bde60a8c",
+                                "Important": false,
+                                "Color": {
+                                  "X": 1.0,
+                                  "Y": 1.0,
+                                  "Z": 0.4,
+                                  "W": 1.0
+                                },
+                                "Id": 150,
+                                "Enable": true,
+                                "Remark": "血壤cd "
+                              },
+                              {
+                                "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeActionNode, AEAssist",
+                                "TriggerActions": [
+                                  {
+                                    "$type": "AEAssist.CombatRoutine.Trigger.TriggerAction.TriggerActionUsePotion, AEAssist",
+                                    "DisplayName": "General/使用爆发药",
+                                    "Remark": ""
+                                  }
+                                ],
+                                "DisplayName": "行为",
+                                "GUID": "2831a893-8a2f-4704-92f9-12f2a6858b6d",
+                                "Important": true,
+                                "Color": {
+                                  "X": 1.0,
+                                  "Y": 0.39999998,
+                                  "Z": 0.39999998,
+                                  "W": 1.0
+                                },
+                                "Id": 151,
+                                "Enable": true,
+                                "Remark": "爆发药"
+                              },
+                              {
+                                "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeCondNode, AEAssist",
+                                "CondLogicType": 0,
+                                "CheckOnce": false,
+                                "ReverseResult": false,
+                                "TriggerConds": [
+                                  {
+                                    "$type": "AEAssist.CombatRoutine.Trigger.TriggerCond.TriggerCondEnemyCastSpell, AEAssist",
+                                    "Remark": "",
+                                    "RegexNameOrId": "42847",
+                                    "NeedTargetable": false,
+                                    "DisplayName": "General/敌人读条使用技能"
+                                  }
+                                ],
+                                "DisplayName": "等待条件",
+                                "GUID": "e303a361-1837-4d40-8eb9-389fce66a063",
+                                "Important": false,
+                                "Color": {
+                                  "X": 1.0,
+                                  "Y": 1.0,
+                                  "Z": 0.4,
+                                  "W": 1.0
+                                },
+                                "Id": 152,
+                                "Enable": true,
+                                "Remark": "青蛙舞者 300s"
+                              },
+                              {
+                                "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeCondNode, AEAssist",
+                                "CondLogicType": 1,
+                                "CheckOnce": false,
+                                "ReverseResult": false,
+                                "TriggerConds": [
+                                  {
+                                    "$type": "AEAssist.CombatRoutine.Trigger.TriggerCond.TriggerCondEnemyCastSpell, AEAssist",
+                                    "Remark": "",
+                                    "RegexNameOrId": "42788",
+                                    "NeedTargetable": false,
+                                    "DisplayName": "General/敌人读条使用技能"
+                                  },
+                                  {
+                                    "$type": "AEAssist.CombatRoutine.Trigger.TriggerCond.TriggerCondEnemyCastSpell, AEAssist",
+                                    "Remark": "",
+                                    "RegexNameOrId": "42789",
+                                    "NeedTargetable": false,
+                                    "DisplayName": "General/敌人读条使用技能"
+                                  }
+                                ],
+                                "DisplayName": "等待条件",
+                                "GUID": "e807d707-7edf-4cb7-8c53-b271ac48fa8e",
+                                "Important": false,
+                                "Color": {
+                                  "X": 1.0,
+                                  "Y": 1.0,
+                                  "Z": 0.4,
+                                  "W": 1.0
+                                },
+                                "Id": 153,
+                                "Enable": true,
+                                "Remark": "摇摆哈娑  460S"
+                              },
+                              {
+                                "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeCondNode, AEAssist",
+                                "CondLogicType": 0,
+                                "CheckOnce": false,
+                                "ReverseResult": false,
+                                "TriggerConds": [
+                                  {
+                                    "$type": "AEAssist.CombatRoutine.Trigger.TriggerCond.TriggerCondCheckSpellCd, AEAssist",
+                                    "SpellId": 16164,
+                                    "CoolDown": 9,
+                                    "Larger": false,
+                                    "Remark": null,
+                                    "DisplayName": "General/检测技能CD"
+                                  }
+                                ],
+                                "DisplayName": "等待条件",
+                                "GUID": "27666ec6-5d6f-4881-b05c-63b5bde60a8c",
+                                "Important": false,
+                                "Color": {
+                                  "X": 1.0,
+                                  "Y": 1.0,
+                                  "Z": 0.4,
+                                  "W": 1.0
+                                },
+                                "Id": 154,
+                                "Enable": true,
+                                "Remark": "血壤cd "
+                              },
+                              {
+                                "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeActionNode, AEAssist",
+                                "TriggerActions": [
+                                  {
+                                    "$type": "AEAssist.CombatRoutine.Trigger.TriggerAction.TriggerActionUsePotion, AEAssist",
+                                    "DisplayName": "General/使用爆发药",
+                                    "Remark": ""
+                                  }
+                                ],
+                                "DisplayName": "行为",
+                                "GUID": "2831a893-8a2f-4704-92f9-12f2a6858b6d",
+                                "Important": true,
+                                "Color": {
+                                  "X": 1.0,
+                                  "Y": 0.39999998,
+                                  "Z": 0.39999998,
+                                  "W": 1.0
+                                },
+                                "Id": 155,
+                                "Enable": true,
+                                "Remark": "爆发药"
+                              }
+                            ],
+                            "GUID": "cb51dbd1-6601-4368-9ce2-00e986142db0",
+                            "Important": false,
+                            "Color": {
+                              "X": 1.0,
+                              "Y": 1.0,
+                              "Z": 0.4,
+                              "W": 1.0
+                            },
+                            "Id": 147,
+                            "Enable": true,
+                            "Remark": "28 爆发药"
+                          },
+                          {
+                            "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeSequence, AEAssist",
+                            "DisplayName": "序列",
+                            "IgnoreNodeResult": false,
+                            "StopWhenDead": false,
+                            "Childs": [
+                              {
+                                "$type": "AEAssist.CombatRoutine.Trigger.Node.TreeCondNode, AEAssist",
+                                "CondLogicType": 0,
+                                "CheckOnce": true,
+                                "ReverseResult": false,
+                                "TriggerConds": [
+                                  {
+                                    "$type": "AEAssist.CombatRoutine.Trigger.TriggerCond.TriggerCondVariable, AEAssist",
+                                    "VariableName": "爆发药时间06 填1 28 填0",
+                                    "CompareType": 3,
+                                    "VariableVaule": 1,
+                                    "Remark": null,
+                                    "DisplayName": "General/变量值"
+                                  }
+                                ],
+                                "DisplayName": "立即检测",
+                                "GUID": "9cafb6f2-e637-4b0b-a4b6-c156aaed135e",
+                                "Important": false,
+                                "Color": {
+                                  "X": 1.0,
+                                  "Y": 1.0,
+                                  "Z": 0.4,
+                                  "W": 1.0
+                                },
+                                "Id": 157,
+                                "Enable": true,
+                                "Remark": ""
+                              }
+                            ],
+                            "GUID": "e647c66c-719f-4779-910d-50401f71368b",
+                            "Important": false,
+                            "Color": {
+                              "X": 1.0,
+                              "Y": 1.0,
+                              "Z": 0.4,
+                              "W": 1.0
+                            },
+                            "Id": 156,
+                            "Enable": true,
+                            "Remark": "0 6 爆发药"
+                          }
+                        ],
+                        "GUID": "6ef00d21-f3bc-4d93-9a1a-80049353eaf4",
+                        "Important": false,
+                        "Color": {
+                          "X": 1.0,
+                          "Y": 1.0,
+                          "Z": 0.4,
+                          "W": 1.0
+                        },
+                        "Id": 146,
+                        "Enable": true,
+                        "Remark": ""
+                      }
+                    ],
+                    "GUID": "34ff9875-dd4b-4632-b080-0616f92ecd4e",
+                    "Important": false,
+                    "Color": {
+                      "X": 1.0,
+                      "Y": 1.0,
+                      "Z": 0.4,
+                      "W": 1.0
+                    },
+                    "Id": 145,
+                    "Enable": true,
+                    "Remark": ""
+                  }
+                ],
+                "GUID": "5a9a3daa-6a48-48e3-88eb-aad9fdeaf34c",
+                "Important": false,
+                "Color": {
+                  "X": 1.0,
+                  "Y": 1.0,
+                  "Z": 0.4,
+                  "W": 1.0
+                },
+                "Id": 144,
+                "Enable": true,
+                "Remark": ""
               }
             ],
             "GUID": "af870106-b07f-4779-9215-ac4f7bbf0f5a",
@@ -4422,11 +4759,12 @@
     "Remark": ""
   },
   "ExposedVars": [
-    "有任何循环问题请加Q 768047653，如果是减伤问题请dc反馈"
+    "有任何循环问题请加Q 768047653，如果是减伤问题请dc反馈",
+    "爆发药时间06 填1 28 填0"
   ],
   "ExposedVarDesc": "默认吃爆发药，不吃的话请改一下ae的爆发药id",
-  "OpenerScript": "using AEAssist;\nusing AEAssist.CombatRoutine;\nusing AEAssist.CombatRoutine.Module;\nusing AEAssist.CombatRoutine.Module.Opener;\nusing AEAssist.Define;\nusing AEAssist.Extension;\nusing AEAssist.Helper;\nusing AEAssist.MemoryApi;\nusing Nagomi.utils;\nusing Nagomi;\n\nnamespace Nagomi.GNB.Opener;\n\npublic class M5S : IOpener\n{\n    public int StartCheck()\n    {\n        return 0;\n    }\n\n    public int StopCheck(int index)\n    {\n        return -1;\n    }\n\n    public List<Action<Slot>> Sequence { get; } = new()\n    {\n        Step0,\n        Step1,\n        Step2,\n       \n    };\n\n    public Action CompeltedAction { get; set; }\n\n\n\n\n    private static void Step0(Slot slot)\n    {\n        slot.Add(new Spell(Spells.利刃斩, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.血壤, SpellTargetType.Target));\n        slot.Add(new SlotAction(Spell.CreatePotion()));\n    }\n\n    private static void Step1(Slot slot)\n    {\n        slot.Add(new Spell(Spells.爆发击, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.无情, SpellTargetType.Self));\n        slot.Add(new Spell(Spells.光之心, SpellTargetType.Self));\n        slot.AddDelaySpell(300,new Spell(Spells.超音速, SpellTargetType.Target));\n    }\n    private static void Step2(Slot slot)\n    {\n        slot.Add(new Spell(Spells.烈牙, SpellTargetType.Target));\n       slot.Add(new Spell(Spells.爆破领域, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.弓形冲波, SpellTargetType.Self));\n        slot.Add(new Spell(Spells.大星云, SpellTargetType.Self));\n    }\n\n\n    \n    \n    \n\n    public uint Level { get; } = 100;\n\n   \n    public void InitCountDown(CountDownHandler countDownHandler)//倒数行为\n    {\n       if(GNBSettings.Instance.起手语音播报){countDownHandler.AddAction(10660, () => {AudioPlayer.PlayAudioFile( \"敌军还有10秒到达战场请做好准备.wav\"); });}\n       if (Core.Me.HasAura(Buffs.王室亲卫)&&GNBSettings.Instance.ST)\n           countDownHandler.AddAction(4500, Spells.关盾姿);\n       if (!Core.Me.HasAura(Buffs.王室亲卫)&&!GNBSettings.Instance.ST)\n           countDownHandler.AddAction(4000, Spells.盾姿);\n       countDownHandler.AddAction(2000, Spells.铁壁);//铁壁\n       if(GNBSettings.Instance.起手语音播报){countDownHandler.AddAction(900, () => {AudioPlayer.PlayAudioFile( \"全军出击.wav\"); });}\n       if (QT.QTGET(QTKey.突进起手) &&!QT.QTGET(QTKey.停手)){ countDownHandler.AddAction(660, Spells.弹道, SpellTargetType.Target); }\n        \n        \n    }\n}\n",
-  "Note": "请手动突进",
+  "OpenerScript": "using AEAssist;\nusing AEAssist.CombatRoutine;\nusing AEAssist.CombatRoutine.Module;\nusing AEAssist.CombatRoutine.Module.Opener;\nusing AEAssist.Define;\nusing AEAssist.Extension;\nusing AEAssist.Helper;\nusing AEAssist.MemoryApi;\nusing Nagomi.utils;\nusing Nagomi;\n\nnamespace Nagomi.GNB.Opener;\n\npublic class M5S : IOpener\n{\n    public int StartCheck()\n    {\n        return 0;\n    }\n\n    public int StopCheck(int index)\n    {\n        return -1;\n    }\n\n    public List<Action<Slot>> Sequence { get; } = new()\n    {\n        Step0,\n        Step1,\n        Step2,\n       \n    };\n\n    public Action CompeltedAction { get; set; }\n\n\n\n\n    private static void Step0(Slot slot)\n    {\n        slot.Add(new Spell(Spells.利刃斩, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.血壤, SpellTargetType.Target));\n    }\n\n    private static void Step1(Slot slot)\n    {\n        slot.Add(new Spell(Spells.爆发击, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.无情, SpellTargetType.Self));\n        slot.Add(new Spell(Spells.光之心, SpellTargetType.Self));\n        slot.AddDelaySpell(300,new Spell(Spells.超音速, SpellTargetType.Target));\n    }\n    private static void Step2(Slot slot)\n    {\n        slot.Add(new Spell(Spells.烈牙, SpellTargetType.Target));\n       slot.Add(new Spell(Spells.爆破领域, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.弓形冲波, SpellTargetType.Self));\n        slot.Add(new Spell(Spells.大星云, SpellTargetType.Self));\n    }\n\n\n    \n    \n    \n\n    public uint Level { get; } = 100;\n\n   \n    public void InitCountDown(CountDownHandler countDownHandler)//倒数行为\n    {\n       if(GNBSettings.Instance.起手语音播报){countDownHandler.AddAction(10660, () => {AudioPlayer.PlayAudioFile( \"敌军还有10秒到达战场请做好准备.wav\"); });}\n       if (Core.Me.HasAura(Buffs.王室亲卫)&&GNBSettings.Instance.ST)\n           countDownHandler.AddAction(4500, Spells.关盾姿);\n       if (!Core.Me.HasAura(Buffs.王室亲卫)&&!GNBSettings.Instance.ST)\n           countDownHandler.AddAction(4000, Spells.盾姿);\n       countDownHandler.AddAction(2000, Spells.铁壁);//铁壁\n       if(GNBSettings.Instance.起手语音播报){countDownHandler.AddAction(900, () => {AudioPlayer.PlayAudioFile( \"全军出击.wav\"); });}\n       if (QT.QTGET(QTKey.突进起手) &&!QT.QTGET(QTKey.停手)){ countDownHandler.AddAction(660, Spells.弹道, SpellTargetType.Target); }\n        \n        \n    }\n}\n",
+  "Note": "请手动突进（acr已内置且会自动更新",
   "TerritoryTypeId": 1257,
   "TerritoryWeatherId": 1,
   "TargetAcrAuthor": "Nag0mi",
