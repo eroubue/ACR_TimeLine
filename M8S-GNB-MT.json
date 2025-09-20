@@ -3,7 +3,7 @@
   "ConfigVersion": 6,
   "TargetJob": 37,
   "Author": "DG",
-  "Name": "M8S 绝枪 MT 炒股版 0.5",
+  "Name": "M8S 绝枪 MT 炒股版 1.2",
   "TreeRoot": {
     "DisplayName": "Start",
     "Childs": [
@@ -9916,7 +9916,7 @@
     "有任何循环问题请加Q 768047653，如果是减伤问题请dc反馈"
   ],
   "ExposedVarDesc": "门神手动突进\n爆发药为开场，本体一瓶，门神结尾会喝一瓶\n因为现在打的快，门神可能最后爆发打不完就转场了\n所以爆发药有提前吃的情况（但是这瓶药只能覆盖60s小爆发\n如果不是门神压得掉最多aoe，不建议这样吃，因为炒高必须要结尾吃\n门神2死刑全减，可以救急（但是小怪打的快的话会导致大星云转不好",
-  "OpenerScript": "using AEAssist;\nusing AEAssist.CombatRoutine;\nusing AEAssist.CombatRoutine.Module;\nusing AEAssist.CombatRoutine.Module.Opener;\nusing AEAssist.Define;\nusing AEAssist.Extension;\nusing AEAssist.Helper;\nusing AEAssist.MemoryApi;\nusing Nagomi.GNB.utils;\nusing Nagomi;\nusing Nagomi.utils;\n\nnamespace Nagomi.GNB.Opener;\n\npublic class M8S : IOpener\n{\n    public int StartCheck()\n    {\n        return 0;\n    }\n\n    public int StopCheck(int index)\n    {\n        return -1;\n    }\n\n    public List<Action<Slot>> Sequence { get; } = new()\n    {\n        Step0,\n        Step1,\n        Step2,\n        Step3,\n       \n    };\n\n    public Action CompeltedAction { get; set; }\n    \n   private static void Step0(Slot slot)\n   {\n       slot.Add(new Spell(Spells.利刃斩, SpellTargetType.Target));\n       slot.Add(new Spell(Spells.血壤, SpellTargetType.Target));\n   }\n\n   private static void Step1(Slot slot)\n   {\n       slot.Add(new Spell(Spells.爆发击, SpellTargetType.Target));\n       slot.Add(new Spell(Spells.无情, SpellTargetType.Self));\n       slot.Add(new Spell(Spells.雪仇, SpellTargetType.Self));\n       slot.Add(new Spell(Spells.超音速, SpellTargetType.Target));\n       \n   }\n   private static void Step2(Slot slot)\n   {\n       slot.Add(new Spell(Spells.烈牙, SpellTargetType.Target));\n       slot.Add(new Spell(Spells.撕喉, SpellTargetType.Target));\n       slot.Add(new Spell(Spells.爆破领域, SpellTargetType.Target));\n       slot.Add(new Spell(Spells.弓形冲波, SpellTargetType.Self));\n       \n   }\n\n    private static void Step3(Slot slot)\n    {\n        slot.Add(new Spell(Spells.音速破, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.光之心, SpellTargetType.Self));\n\n    }\n\n    \n    \n    \n\n    public uint Level { get; } = 100;\n\n   \n    public void InitCountDown(CountDownHandler countDownHandler)//倒数行为\n    {\n\n        if(GNBSettings.Instance.起手语音播报){countDownHandler.AddAction(10660, () => {AudioPlayer.PlayAudioFile( \"敌军还有10秒到达战场请做好准备.wav\"); });}\n        if (Core.Me.HasAura(Buffs.王室亲卫)&&GNBSettings.Instance.ST)\n            countDownHandler.AddAction(4500, Spells.关盾姿);\n        if (!Core.Me.HasAura(Buffs.王室亲卫)&&!GNBSettings.Instance.ST)\n            countDownHandler.AddAction(4000, Spells.盾姿);\n        countDownHandler.AddAction(3000, Spells.铁壁);//铁壁\n        if(GNBSettings.Instance.起手语音播报){countDownHandler.AddAction(900, () => {AudioPlayer.PlayAudioFile( \"全军出击.wav\"); });}\n        if (QT.QTGET(QTKey.突进起手) &&!QT.QTGET(QTKey.停手)){ countDownHandler.AddAction(660, Spells.弹道, SpellTargetType.Target); }\n\n        \n        \n    }\n}\n",
+  "OpenerScript": "",
   "Note": "可无脑打，有自动突进，门神可贪",
   "TerritoryTypeId": 1263,
   "TerritoryWeatherId": 1,

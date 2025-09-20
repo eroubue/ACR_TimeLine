@@ -3,7 +3,7 @@
   "ConfigVersion": 6,
   "TargetJob": 37,
   "Author": "DG",
-  "Name": "M7S 绝枪 炒股版 0.5",
+  "Name": "M7S 绝枪 炒股版 ",
   "TreeRoot": {
     "DisplayName": "Start",
     "Childs": [
@@ -7037,7 +7037,7 @@
     "有任何循环问题请加Q 768047653，如果是减伤问题请dc反馈"
   ],
   "ExposedVarDesc": "第一次死刑全减吃填0 \n第一次死刑无敌吃填1\n根据职能选择自动打断小怪\np3踩塔无敌 1死刑全减 2死刑可以分摊也可以st全吃\np3因结束时间，考虑小怪延后爆发延后一分钟对齐死亡时间，默认延后\n爆发药好了就吃",
-  "OpenerScript": "using AEAssist;\nusing AEAssist.CombatRoutine;\nusing AEAssist.CombatRoutine.Module;\nusing AEAssist.CombatRoutine.Module.Opener;\nusing AEAssist.Define;\nusing AEAssist.Extension;\nusing AEAssist.Helper;\nusing AEAssist.MemoryApi;\nusing Nagomi.GNB.utils;\nusing Nagomi;\nusing Nagomi.utils;\n\nnamespace Nagomi.GNB.Opener;\n\npublic class M7S : IOpener\n{\n    public int StartCheck()\n    {\n        return 0;\n    }\n\n    public int StopCheck(int index)\n    {\n        return -1;\n    }\n\n    public List<Action<Slot>> Sequence { get; } = new()\n    {\n        Step0,\n        Step1,\n        Step2,\n        Step3,\n       \n    };\n\n    public Action CompeltedAction { get; set; }\n\n\n   // public int StepCount => 9;\n\n\n    private static void Step0(Slot slot)\n    {\n        slot.Add(new Spell(Spells.利刃斩, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.血壤, SpellTargetType.Target));\n        slot.Add(new SlotAction(Spell.CreatePotion()));\n    }\n\n    private static void Step1(Slot slot)\n    {\n        slot.Add(new Spell(Spells.爆发击, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.无情, SpellTargetType.Self));\n        slot.AddDelaySpell(800,new Spell(Spells.超音速, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.爆破领域, SpellTargetType.Target));\n        \n    }\n    private static void Step2(Slot slot)\n    {\n        slot.Add(new Spell(Spells.烈牙, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.弓形冲波, SpellTargetType.Self));\n        slot.Add(new Spell(Spells.撕喉, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.光之心, SpellTargetType.Self));\n        \n    }\n\n    private static void Step3(Slot slot)\n    {\n        slot.Add(new Spell(Spells.音速破, SpellTargetType.Target));\n        slot.Add(new Spell(Spells.雪仇, SpellTargetType.Self));\n        slot.Add(new Spell(Spells.倍攻, SpellTargetType.Self));\n    }\n\n    \n    \n    \n\n    public uint Level { get; } = 100;\n\n   \n    public void InitCountDown(CountDownHandler countDownHandler)//倒数行为\n    {\n        LogHelper.Print(\"M7S起手\");//打印信息,可选\n        if(GNBSettings.Instance.起手语音播报){countDownHandler.AddAction(10660, () => {AudioPlayer.PlayAudioFile( \"敌军还有10秒到达战场请做好准备.wav\"); });}\n        if (Core.Me.HasAura(Buffs.王室亲卫)&&GNBSettings.Instance.ST)\n            countDownHandler.AddAction(4500, Spells.关盾姿);\n        if (!Core.Me.HasAura(Buffs.王室亲卫)&&!GNBSettings.Instance.ST)\n            countDownHandler.AddAction(4000, Spells.盾姿);\n        if(GNBSettings.Instance.起手语音播报){countDownHandler.AddAction(900, () => {AudioPlayer.PlayAudioFile( \"全军出击.wav\"); });}\n        if (QT.QTGET(QTKey.突进起手) &&!QT.QTGET(QTKey.停手)){ countDownHandler.AddAction(660, Spells.弹道, SpellTargetType.Target); }\n        \n        \n    }\n}\n",
+  "OpenerScript": "",
   "Note": "有特化，请看说明（不看也可无脑打",
   "TerritoryTypeId": 1261,
   "TerritoryWeatherId": 0,
