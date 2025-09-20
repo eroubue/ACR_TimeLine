@@ -7,30 +7,31 @@
   },
   {
     "Name": "M5S-GNB-MT",
-    "Version": "1.1",
+    "Version": "1.2",
     "DownloadUrl": "https://raw.githubusercontent.com/eroubue/ACR_TimeLine/refs/heads/main/M5S-GNB-MT.json",
     "UpdateInfo": "有问题请联系"
   },
   {
     "Name": "M6S-GNB-MT",
-    "Version": "1.0",
+    "Version": "1.2",
     "DownloadUrl": "https://raw.githubusercontent.com/eroubue/ACR_TimeLine/refs/heads/main/M6S-GNB-MT.json",
     "UpdateInfo": "有问题请联系"
   },
   {
     "Name": "M7S-GNB-MT",
-    "Version": "1.0",
+    "Version": "1.2",
     "DownloadUrl": "https://raw.githubusercontent.com/eroubue/ACR_TimeLine/refs/heads/main/M7S-GNB-MT.json",
     "UpdateInfo": " 有问题请联系"
   },
   {
     "Name": "M8S-GNB-MT",
-    "Version": "1.1",
+    "Version": "1.2",
     "DownloadUrl": "https://raw.githubusercontent.com/eroubue/ACR_TimeLine/refs/heads/main/M8S-GNB-MT.json",
     "UpdateInfo": " 有问题请联系"
   }
 
 ]
+
 
 
 
